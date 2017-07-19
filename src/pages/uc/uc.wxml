@@ -1,4 +1,3 @@
 <view bindtap="viewTap">
   {{text}}
-  <view>app</view>
 </view>

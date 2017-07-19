@@ -11,7 +11,7 @@ page {
 }
 
 .container {
-  height: 100px;
+  height: 100rpx;
   display: flex;
   flex-direction: column;
 }

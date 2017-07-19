@@ -1,4 +1,4 @@
-import { WPage } from 'axe'
+import { WPage } from "../../modules/axe/index.js"
 WPage({
   data: {
     text: 'This is page data.'
