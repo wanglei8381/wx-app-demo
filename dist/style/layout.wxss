@@ -93,7 +93,3 @@
 .uf-f4 {
   flex: 4;
 }
-
-.uf-g1, .uf-g2, .uf-g3, .uf-g4, .uf-f1, .uf-f2, .uf-f3, .uf-f4 {
-  box-sizing: border-box;
-}

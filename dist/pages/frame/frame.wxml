@@ -1,0 +1,4 @@
+<view bindtap="onReportData">
+  {{text}}
+  <view>app</view>
+</view>

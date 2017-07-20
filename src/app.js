@@ -8,4 +8,10 @@ axe.mixin({
 })
 
 // 启动
-WApp()
+WApp({
+  onLaunch () {
+    // wx.setNavigationBarTitle({
+    //   title: '当前页面'
+    // })
+  }
+})

@@ -14,7 +14,8 @@ gulp.task('js', function () {
                '@': './',
                'apis': './apis',
                'axe': './modules/axe/index.js',
-               'utils': './utils/index.js'
+               'utils': './utils/index.js',
+               'templates': './templates'
              }))
              .pipe(gulp.dest('./dist'))
 });

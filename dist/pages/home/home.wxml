@@ -1,4 +1,6 @@
+<import src="../../templates/head/head.wxml"/>
+
 <view bindtap="onReportData">
-  {{text}}
-  <view>app</view>
+  <template is="head" data="{{...header}}"/>
+  <view>{{text}}</view>
 </view>

@@ -5,7 +5,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "拼车",
+    "navigationBarTitleText": "微信小程序demo",
     "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
