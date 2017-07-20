@@ -1,4 +1,11 @@
-import { WApp } from 'modules/axe/index'
+import axe, { WApp } from "modules/axe/index.js"
+
+// 数据上报
+axe.mixin({
+  onReportData (e) {
+    console.log(e)
+  }
+})
 
 // 启动
 WApp()

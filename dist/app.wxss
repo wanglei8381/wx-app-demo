@@ -1,25 +1,9 @@
-view,
-view::before,
-view::after {
-  box-sizing: border-box;
-}
+@import "./style/index.wxss";
 
-page {
-  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', Roboto, Arial, 'Microsoft YaHei', sans-serif;
-  height: 100%;
-  width: 100%;
-}
+
 
 .container {
   height: 100rpx;
   display: flex;
   flex-direction: column;
-}
-
-.uf {
-  display: flex;
-}
-
-.uf-f1 {
-  flex: 1;
 }
