@@ -1,4 +1,5 @@
 import axe, { WApp } from 'axe'
+import './run'
 
 // 数据上报
 axe.mixin({
