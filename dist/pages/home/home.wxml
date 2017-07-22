@@ -3,4 +3,6 @@
 <view bindtap="onReportData">
   <template is="head" data="{{...header}}"/>
   <view>{{text}}</view>
+  <view>{{nickName}}</view>
+  <image src="{{avatarUrl}}"></image>
 </view>

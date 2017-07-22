@@ -8,6 +8,7 @@ import {
 } from './options'
 
 let app = null
+let uid = 1
 class Axe extends Event {
   constructor (options = {}, run) {
     super()
@@ -15,6 +16,7 @@ class Axe extends Event {
     this._cxt = this
     // 是否是Page
     this._isPage = run === Page
+    this._uid = uid++
 
     // 通过混合代理$cxt属性
     proxy(this)

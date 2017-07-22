@@ -1,20 +1,67 @@
 import Axe from 'axe'
-import state from './state'
+import initialState from './state'
+import {
+  isPlainObject,
+  shallowEqual
+} from 'utils'
 import reducers from './reducers/index'
 
-import { createStore } from 'redux'
+import {
+  createStore
+} from 'redux'
 
-let store = createStore(reducers, state)
+let $store = createStore(reducers, initialState)
+
+$store.subscribe(() => {
+  console.log('[store]', JSON.stringify($store.getState()))
+})
 
 // 全局mixin
 Axe.mixin({
-  $store: store,
+  $store,
   onLoad () {
-    if (!this.mapState) return
-    store.subscribe(() => {
-      this.mapState(store.getState())
+    if (!this.onStateChange && !this.mapState) return
+    this.$unsubscribe = this.$store.subscribe(() => {
+      var state = this.$store.getState()
+      listener(this, state)
     })
+  },
+
+  onShow () {
+    this._active = true
+    if (this._ready) {
+      listener(this, this.$store.getState())
+    }
+  },
+
+  onReady () {
+    this._ready = true
+    listener(this, this.$store.getState())
+  },
+
+  onHide () {
+    this._active = false
+  },
+
+  onUnload () {
+    if (this.$unsubscribe) {
+      this.$unsubscribe()
+    }
   }
 })
 
-export default store
+function listener (axe, state) {
+  if (!axe._active) return
+  if (axe.mapState) {
+    var nextState = axe.mapState(state)
+    if (isPlainObject(nextState) && !shallowEqual(axe.state, nextState)) {
+      axe.state = nextState
+      axe.setData(axe.state)
+    }
+  }
+  if (axe.onStateChange) {
+    axe.onStateChange(state)
+  }
+}
+
+export default $store

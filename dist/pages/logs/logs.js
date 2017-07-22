@@ -3,7 +3,12 @@ let page = WPage({
   data: {
     text: 'This is page data.'
   },
-
+  mapState (state) {
+    return {
+      nickName: state.userInfo.nickName,
+      avatarUrl: state.userInfo.avatarUrl
+    }
+  },
   viewTap () {
     console.log('viewTap', this)
   },
@@ -15,12 +20,4 @@ let page = WPage({
   onInit () {
     console.log('----->>>>>home init')
   }
-})
-
-page.on('me', function (msg) {
-  console.log('====>>>', msg, this)
-  this.setData({
-    text: msg
-  })
-  this.viewTap()
 })

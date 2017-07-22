@@ -6,7 +6,10 @@ WPage({
     text: 'This is page data.'
   },
   mapState (state) {
-    console.log(state)
+    return {
+      nickName: state.userInfo.nickName,
+      avatarUrl: state.userInfo.avatarUrl
+    }
   },
   onReady: function () {
     const _this = this
