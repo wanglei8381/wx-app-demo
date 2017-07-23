@@ -1,0 +1,7 @@
+<import src="../../templates/head/head.wxml"/>
+
+<view bindtap="onReportData">
+  <template is="head" data="{{...header}}"/>
+  <view>{{nickName}}</view>
+  <image src="{{avatarUrl}}"></image>
+</view>

@@ -5,16 +5,14 @@ import {
   shallowEqual
 } from "../utils/index.js"
 import reducers from './reducers/index'
+import log from './log'
 
 import {
-  createStore
+  createStore,
+  applyMiddleware
 } from "../modules/redux/index.js"
 
-let $store = createStore(reducers, initialState)
-
-$store.subscribe(() => {
-  console.log('[store]', JSON.stringify($store.getState()))
-})
+let $store = createStore(reducers, initialState, applyMiddleware(log))
 
 // 全局mixin
 Axe.mixin({

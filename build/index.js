@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
-var wxss = require('./wxss');
-var alias = require('./alias');
+var px2rpx = require('./gulp-px2rpx');
+var alias = require('./gulp-alias');
 var del = require('del');
 
 var jsPath = './src/**/*.js'
@@ -15,17 +15,18 @@ gulp.task('js', function () {
                'apis': './apis',
                'axe': './modules/axe/index.js',
                'redux': './modules/redux/index.js',
+               'most': './modules/most/index.js',
                'utils': './utils/index.js',
                'templates': './templates',
                // 'store': './store',
-               'actions': './store/actions/index.js',
+               'actions': './store/actions/index.js'
              }))
              .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('wxss', function () {
   return gulp.src(cssPath)
-             .pipe(wxss())
+             .pipe(px2rpx())
              .pipe(gulp.dest('./dist'))
 });
 

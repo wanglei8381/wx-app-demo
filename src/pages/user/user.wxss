@@ -1,0 +1,5 @@
+@import "../../templates/head/head.wxss";
+
+view {
+  height: 120px;
+}

@@ -40,3 +40,10 @@ WPage({
   mixins:[{}]
 })
 主要是解决模块化
+
+> redux
+
+* $store：每个页面添加$store属性
+* mapState：每个页面添加mapState函数选项，用于将redux的属性绑定到当前页面的state上
+* state：每个页面添加state属性
+* onStateChange：state每次改变会调用，将最新的state返回，每次打开页面都会先调用一次

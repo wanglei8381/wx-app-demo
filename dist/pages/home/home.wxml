@@ -1,8 +1,6 @@
-<import src="../../templates/head/head.wxml"/>
-
-<view bindtap="onReportData">
-  <template is="head" data="{{...header}}"/>
-  <view>{{text}}</view>
-  <view>{{nickName}}</view>
-  <image src="{{avatarUrl}}"></image>
+<view class="uf uf-ac">
+  <navigator url="/pages/most/most">most</navigator>
+</view>
+<view class="uf uf-ac">
+  <navigator url="/pages/user/user">user info</navigator>
 </view>

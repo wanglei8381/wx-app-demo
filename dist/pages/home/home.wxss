@@ -1,5 +1,4 @@
-@import "../../templates/head/head.wxss";
-
 view {
   height: 120rpx;
+  border-bottom: 1rpx solid #dddddd;
 }

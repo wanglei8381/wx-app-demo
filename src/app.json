@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/most/most",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
