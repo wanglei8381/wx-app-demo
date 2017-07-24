@@ -6,13 +6,14 @@ import {
 } from 'utils'
 import reducers from './reducers/index'
 import log from './log'
+import reduxThunk from '../modules/redux-thunk/index'
 
 import {
   createStore,
   applyMiddleware
 } from 'redux'
 
-let $store = createStore(reducers, initialState, applyMiddleware(log))
+let $store = createStore(reducers, initialState, applyMiddleware(reduxThunk, log))
 
 // 全局mixin
 Axe.mixin({
