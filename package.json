@@ -6,7 +6,8 @@
     "build": "gulp build --env production",
     "lint": "eslint src"
   },
-  "dependencies": {
+  "devDependencies": {
+    "gulp-watch": "^4.3.11",
     "babel": "^6.23.0",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",

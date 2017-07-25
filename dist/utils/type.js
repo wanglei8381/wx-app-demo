@@ -82,6 +82,10 @@ export function isArray (obj) {
   return Array.isArray(obj)
 }
 
+export function isLikeArray (obj) {
+  return isObject(obj) && typeof obj.length === 'number'
+}
+
 // 2^53 - 1 数组下标从0开始，最大长度length - 1
 const MAX_SAFE_INTEGER = 9007199254740991
 /**
