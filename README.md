@@ -47,3 +47,7 @@ WPage({
 * mapState：每个页面添加mapState函数选项，用于将redux的属性绑定到当前页面的state上
 * state：每个页面添加state属性
 * onStateChange：state每次改变会调用，将最新的state返回，每次打开页面都会先调用一次
+
+> rxjs
+
+* 引入rxjs的过程，下载rxjs源码，安装依赖，运行npm run global

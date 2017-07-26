@@ -1,0 +1,8 @@
+<view>
+  <view class="title uf uf-ac">Rxjs ADD</view>
+  <view class="uf">
+    <view class="uf-f1"><input type="number" bindinput="onAdd1$" placeholder="数字" auto-focus/></view>
+    <view class="uf-f1"><input type="number" bindinput="onAdd2$" placeholder="数字"/></view>
+    <view>{{addRes}}</view>
+  </view>
+</view>

@@ -3,6 +3,7 @@
     "pages/home/home",
     "pages/logs/logs",
     "pages/most/most",
+    "pages/rxjs/rxjs",
     "pages/user/user"
   ],
   "window": {

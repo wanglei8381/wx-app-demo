@@ -2,5 +2,8 @@
   <navigator url="/pages/most/most">most</navigator>
 </view>
 <view class="uf uf-ac">
+  <navigator url="/pages/rxjs/rxjs">Rxjs</navigator>
+</view>
+<view class="uf uf-ac">
   <navigator url="/pages/user/user">user info</navigator>
 </view>
