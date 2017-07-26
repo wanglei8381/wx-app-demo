@@ -1,5 +1,5 @@
 import { WPage } from '../../modules/axe/index'
-let page = WPage({
+WPage({
   data: {
     text: 'This is page data.'
   },

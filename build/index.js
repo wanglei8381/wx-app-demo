@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var babel = require('gulp-babel');
 var px2rpx = require('./gulp-px2rpx');
 var alias = require('./gulp-alias');
 var watch = require('./watch');
