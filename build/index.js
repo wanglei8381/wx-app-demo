@@ -7,29 +7,36 @@ var config = require('./config');
 
 var jsPath = './src/**/*.js'
 var cssPath = './src/**/*.wxss'
-var otherPath = './src/**/*.!(js|wxss)'
+var jsonPath = './src/**/*.json'
+var xmlPath = './src/**/*.wxml'
 
 gulp.task('js', function () {
   return gulp.src(jsPath)
-             .pipe(watch(jsPath))
-             .pipe(alias(config.alias))
-             .pipe(gulp.dest('./dist'))
+    .pipe(watch(jsPath))
+    .pipe(alias(config.alias))
+    .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('wxss', function () {
   return gulp.src(cssPath)
-             .pipe(watch(cssPath))
-             .pipe(px2rpx())
-             .pipe(gulp.dest('./dist'))
+    .pipe(watch(cssPath))
+    .pipe(px2rpx())
+    .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('other', function () {
-  return gulp.src(otherPath)
-             .pipe(watch(otherPath))
-             .pipe(gulp.dest('./dist'))
+gulp.task('wxml', function () {
+  return gulp.src(xmlPath)
+    .pipe(watch(xmlPath))
+    .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('default', ['js', 'wxss', 'other']);
+gulp.task('json', function () {
+  return gulp.src(jsonPath)
+    .pipe(watch(jsonPath))
+    .pipe(gulp.dest('./dist'))
+});
+
+gulp.task('default', ['js', 'wxss', 'wxml', 'json']);
 
 gulp.task('dev', ['default'])
 
