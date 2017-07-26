@@ -22,8 +22,8 @@ class Axe extends Event {
     proxy(this)
 
     let finalOptions = {}
-    mergeOptions.call(this, finalOptions, options)
-    mergeOptions.call(this, finalOptions, Axe.options)
+    mergeOptions(finalOptions, options)
+    mergeOptions(finalOptions, Axe.options)
 
     // console.log('finalOptions==', finalOptions)
 

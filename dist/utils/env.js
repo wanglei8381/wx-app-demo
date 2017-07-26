@@ -8,3 +8,5 @@ export function extend (dist, src) {
     dist[key] = src[key]
   }
 }
+
+export let hasOwn = Object.prototype.hasOwnProperty

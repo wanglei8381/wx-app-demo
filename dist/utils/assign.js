@@ -1,7 +1,7 @@
+import { hasOwn } from './env'
 var getOwnPropertySymbols = Object.getOwnPropertySymbols
-var hasOwnProperty = Object.prototype.hasOwnProperty
 var propIsEnumerable = Object.prototype.propertyIsEnumerable
-var shouldUseNative = typeof Object.assign == 'function'
+var shouldUseNative = typeof Object.assign === 'function'
 function toObject (val) {
   if (val == null) {
     throw new TypeError('Object.assign cannot be called with null or undefined')
@@ -19,7 +19,7 @@ export var assign = shouldUseNative ? Object.assign : function (target) {
     from = Object(arguments[s])
 
     for (var key in from) {
-      if (hasOwnProperty.call(from, key)) {
+      if (hasOwn.call(from, key)) {
         to[key] = from[key]
       }
     }

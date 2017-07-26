@@ -1,14 +1,15 @@
-const hasOwn = Object.prototype.hasOwnProperty
+import { hasOwn } from './env'
 
-function is(x, y) {
+function is (x, y) {
   if (x === y) {
     return x !== 0 || y !== 0 || 1 / x === 1 / y
   } else {
+    /* eslint-disable no-self-compare */
     return x !== x && y !== y
   }
 }
 
-export function shallowEqual(objA, objB) {
+export function shallowEqual (objA, objB) {
   if (is(objA, objB)) return true
 
   if (typeof objA !== 'object' || objA === null ||

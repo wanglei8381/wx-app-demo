@@ -17,7 +17,7 @@ export function mixin (options) {
   return options
 }
 
-export function mergeOptions (distOptions, srcOptions) {
+export function mergeOptions (distOptions, srcOptions, clockwise) {
   srcOptions = mixin(srcOptions)
   let keys = Object.keys(srcOptions)
   for (let i = 0, len = keys.length; i < len; i++) {
@@ -30,7 +30,11 @@ export function mergeOptions (distOptions, srcOptions) {
       }
       extend(distOptions.data, data)
     } else if (isHook(key)) {
-      distOptions[key] = concatFunction(srcOptions[key], distOptions[key])
+      if (clockwise) {
+        distOptions[key] = concatFunction(distOptions[key], srcOptions[key])
+      } else {
+        distOptions[key] = concatFunction(srcOptions[key], distOptions[key])
+      }
     } else {
       distOptions[key] = srcOptions[key]
     }
@@ -58,7 +62,7 @@ export function bindOptions (axe, options) {
 export function initMixin (Axe) {
   Axe.options = {}
   Axe.mixin = function (options) {
-    mergeOptions(this.options, options)
+    mergeOptions(this.options, options, true)
   }
 }
 

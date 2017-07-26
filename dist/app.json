@@ -1,25 +1,12 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/logs/logs",
-    "pages/most/most",
-    "pages/rxjs/rxjs",
-    "pages/user/user"
+    "pages/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微信小程序demo",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "日志"
-    }]
   },
   "networkTimeout": {
     "request": 10000
