@@ -2,6 +2,8 @@
 
 css: BEM
 
+简单定义：B-B__E-E_M-M
+
 js引入Axe框架，只是简单的代理小程序的App和Page函数，引入Event事件和Mixins，
 完全不影响小程序自身的框架
 
@@ -32,8 +34,13 @@ WPage --> Page
 
 > mixins
 
+混合的策略：
+和生命周期有关的的会concat;
+对于data如果属性存在且该属性的值是对象，递归继续遍历;
+其他键名冲突时替换
+
 全局混合Axe.mixin
-主要混入一些全局变量，如store
+主要混入一些全局变量和函数，如store
 
 局部mixins
 WPage({
@@ -51,3 +58,15 @@ WPage({
 > rxjs
 
 * 引入rxjs的过程，下载rxjs源码，安装依赖，运行npm run global
+
+> 模板
+
+```
+小程序模板只是wxml文件，不包括wxss和js
+为了扩展将模块的wxss，js，wxml放在同个文件
+wxml，wxss通过import引入, js通过minixs
+问题：
+1：页面需要先引入所有需要的模板
+2：页面的wxss需要引入所有需要的模板的wxss，命名可以通过命名空间来避免冲突
+3：页面的js需要引入所有需要的模板的js，通过minixs引入模板的js，需要注意模板的js的函数名冲突
+```
