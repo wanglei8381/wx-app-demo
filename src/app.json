@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/frame/frame",
     "pages/logs/logs",
     "pages/most/most",
     "pages/rxjs/rxjs",

@@ -1,0 +1,5 @@
+<template name="mb">
+  <view class="header uf uf-center">
+    {{title}}
+  </view>
+</template>

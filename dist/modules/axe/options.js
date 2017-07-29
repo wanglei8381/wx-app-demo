@@ -1,7 +1,6 @@
-import {
-  extend,
-  isFunction
-} from '../../utils/index'
+import { isFunction } from '../../utils/index'
+
+import { extend } from './utils'
 
 import config from './config'
 
@@ -26,7 +25,7 @@ export function mergeOptions (distOptions, srcOptions, clockwise) {
       distOptions.data = distOptions.data || {}
       var data = srcOptions[key]
       if (isFunction(data)) {
-        data = data.call(this)
+        data = data()
       }
       extend(distOptions.data, data)
     } else if (isHook(key)) {

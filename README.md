@@ -1,8 +1,49 @@
 # 微信小程序demo
 
-css: BEM
+微信小程序主要有两个方法，App, Page
+App是小程序的入口，Page是每个页面的入口
+在Page中主要有两个属性data和setData,通过修改data的值来重绘页面的视图
 
-简单定义：B-B__E-E_M-M
+页面初始化Page(options)
+Page一旦初始化完成，再修改options也是无效的
+
+小程序需要解决的问题
+埋点
+模块化
+状态管理
+异步流程库
+...
+
+如何对小程序进行扩展，来满足业务代码和工具代码分离呢
+
+这就需要在Page初始化之前，对options做一些附加选项
+
+混合模式
+
+如：埋点
+如果对每一个页面埋点，就需要在每个页面绑定一个方法onViewTap
+如果在全局的options绑定一个onViewTap，每个页面的options再继承这个全局的options，
+就可以解决这个问题。
+// 全局绑定一个onViewTap
+Axe.mixin({
+  onViewTap () {
+    console.log('onViewTap')
+  }
+})
+
+如：模块化
+一个页面有多个模块拼接而成，每个模块(wxml)有自己的样式(wxss)和逻辑(js)，模块在页面是否可见，顺序都是可配置的
+模块的逻辑可以通过局部混合注入到页面中
+// a, b, c都是模块的js
+WPage({
+  mixins: [a,b,c]
+})
+
+> css: BEM
+
+简单规则定义：B-B__E-E_M-M
+
+> js: Axe
 
 js引入Axe框架，只是简单的代理小程序的App和Page函数，引入Event事件和Mixins，
 完全不影响小程序自身的框架
@@ -12,8 +53,8 @@ WApp --> App
 WPage --> Page
 
 > 用法
-* WApp()
-* WPage()
+* WApp(options)
+* WPage(options)
 
 > 静态方法
 * Axe.mixin 全局混合
@@ -59,12 +100,12 @@ WPage({
 
 * 引入rxjs的过程，下载rxjs源码，安装依赖，运行npm run global
 
-> 模板
+> 模块化
 
 ```
 小程序模板只是wxml文件，不包括wxss和js
 为了扩展将模块的wxss，js，wxml放在同个文件
-wxml，wxss通过import引入, js通过minixs
+wxml，wxss通过import引入, js通过minixs引入
 问题：
 1：页面需要先引入所有需要的模板
 2：页面的wxss需要引入所有需要的模板的wxss，命名可以通过命名空间来避免冲突

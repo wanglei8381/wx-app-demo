@@ -22,5 +22,14 @@ export default {
 
     // 昵称
     nickName: ''
+  },
+  // 页面的配置信息
+  pages: {
+    'pages/frame/frame': {
+      templates: [{
+        key: 'ma',
+        data: {}
+      }]
+    }
   }
 }
