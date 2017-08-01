@@ -1,56 +1,16 @@
+import Axe from './axe'
 import Event from '../event/index'
-import { proxy } from './proxy'
-import { callHook } from './utils'
 import {
-  bindOptions,
-  mergeOptions,
-  initMixin
-} from './options'
+  initMixin,
+  buildinMixin
+} from './mixin'
 
 let app = null
-let uid = 1
-class Axe extends Event {
-  constructor (options = {}, run) {
-    super()
-    // 上下文代指自己,主要给Event使用
-    this._cxt = this
-    // 是否是Page
-    this._isPage = run === Page
-    this._uid = uid++
-
-    // 通过混合代理$cxt属性
-    proxy(this)
-
-    let finalOptions = {}
-    mergeOptions(finalOptions, options)
-    mergeOptions(finalOptions, Axe.options)
-
-    // console.log('finalOptions==', finalOptions)
-
-    bindOptions(this, finalOptions)
-    callHook('Init', this)
-    run(this)
-  }
-
-  // 代理setData
-  setData (data) {
-    if (this.$cxt && this.$cxt.setData) {
-      this.$cxt.setData(data)
-    } else {
-      console.log('[axe][setData]setData需要在onLoad后才可以使用')
-    }
-  }
-
-  // 代理route
-  get route () {
-    if (this.$cxt) {
-      return this.$cxt.route
-    }
-  }
-}
 
 // 初始化混合
 initMixin(Axe)
+// 内置的混合属性
+buildinMixin(Axe)
 
 export function WApp (options) {
   if (app) return app
