@@ -27,19 +27,13 @@ Axe.mixin({
   },
 
   onShow () {
-    this._active = true
     if (this._ready) {
       listener(this, this.$store.getState())
     }
   },
 
   onReady () {
-    this._ready = true
     listener(this, this.$store.getState())
-  },
-
-  onHide () {
-    this._active = false
   },
 
   onUnload () {
