@@ -1,5 +1,5 @@
-import axe, { WApp } from "modules/axe/index.js"
 import './run'
+import axe, { WApp } from "modules/axe/index.js"
 
 import { fetchUser } from "store/actions/index.js"
 

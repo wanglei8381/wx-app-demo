@@ -1,5 +1,5 @@
-import axe, { WApp } from 'axe'
 import './run'
+import axe, { WApp } from 'axe'
 
 import { fetchUser } from 'actions'
 

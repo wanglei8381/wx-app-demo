@@ -1,6 +1,10 @@
 {
   "pages": [
-    "pages/frame/frame"
+    "pages/frame/frame",
+    "pages/logs/logs",
+    "pages/most/most",
+    "pages/rxjs/rxjs",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
