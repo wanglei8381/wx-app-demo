@@ -18,6 +18,5 @@ WPage({
   },
 
   onInit () {
-    console.log('----->>>>>home init')
   }
 })

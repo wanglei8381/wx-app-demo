@@ -1,6 +1,7 @@
-export const UPDATE_USER_INFO = 'updateUserInfo'
-export const UPDATE_PAGES = 'updatePages'
-export const UPDATE_PAGES_TPLS_DATA = 'updatePagesTplsData'
+import {
+  UPDATE_USER_INFO,
+  UPDATE_PAGES_TPLS_DATA
+} from '../action-types'
 
 export function fetchUser (userInfo) {
   return {
@@ -9,17 +10,10 @@ export function fetchUser (userInfo) {
   }
 }
 
-export function fetchPages (pages) {
-  return {
-    type: UPDATE_PAGES,
-    pages
-  }
-}
-
-export function updatePagesTplsData (path, data) {
+export function updatePagesTplsData (name, data) {
   return {
     type: UPDATE_PAGES_TPLS_DATA,
-    path,
+    name,
     data
   }
 }

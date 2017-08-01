@@ -25,11 +25,14 @@ export default {
   },
   // 页面的配置信息
   pages: {
+    // 页面地址
     'pages/frame/frame': {
-      templates: [{
-        key: 'ma',
-        data: {}
-      }]
+      // 页面中的模块
+      templates: ['ma', 'mb', 'mc', 'ma'],
+      // 模块ma的数据
+      ma: {},
+      mb: {},
+      mc: {}
     }
   }
 }

@@ -1,3 +1,4 @@
+import { updatePagesTplsData } from 'actions'
 export default {
   data () {
     return {
@@ -5,5 +6,13 @@ export default {
         title: 'MA'
       }
     }
+  },
+
+  onReady () {
+    setTimeout(() => {
+      this.$store.dispatch(updatePagesTplsData('ma', {
+        title: 'MAMA'
+      }))
+    }, 300)
   }
 }

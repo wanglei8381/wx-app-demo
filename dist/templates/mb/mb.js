@@ -1,3 +1,4 @@
+import { updatePagesTplsData } from "../../store/actions/index.js"
 export default {
   data () {
     return {
@@ -5,5 +6,13 @@ export default {
         title: 'MB'
       }
     }
+  },
+
+  onReady () {
+    setTimeout(() => {
+      this.$store.dispatch(updatePagesTplsData('mb', {
+        title: 'MBMB'
+      }))
+    }, 400)
   }
 }
