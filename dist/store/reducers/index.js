@@ -1,5 +1,8 @@
 import { combineReducers } from "../../modules/redux/index.js"
-import { assign } from "../../utils/index.js"
+import {
+  assign,
+  clone
+} from "../../utils/index.js"
 import {
   UPDATE_USER_INFO,
   UPDATE_PAGES,
@@ -21,9 +24,20 @@ function fetchPages (state = {}, action) {
   switch (action.type) {
     case UPDATE_PAGES:
       return assign({}, state, action.pages)
+    case UPDATE_PAGES_TPLS_DATA:
+      return fetchPagesTplsData(state, action)
     default:
       return state
   }
+}
+
+// 更新页面模板的数据
+function fetchPagesTplsData (state = {}, action) {
+  const tpls = state[action.path].templates
+  return tpls.map((item) => {
+    var tpl = clone(item, true)
+    return assign(tpl.data, action.datas[item.key])
+  })
 }
 
 export default combineReducers({

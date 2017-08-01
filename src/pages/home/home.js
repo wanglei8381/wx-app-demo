@@ -1,3 +1,3 @@
-import axe, { WPage } from 'axe'
+import { WPage } from 'axe'
 
 WPage()

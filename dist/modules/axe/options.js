@@ -6,18 +6,19 @@ import config from './config'
 
 let lifecycleHooks = config.app.lifecycleHooks.concat(config.page.lifecycleHooks)
 
-export function mixin (options) {
+export function mixin (options, clockwise) {
   if (Array.isArray(options.mixins)) {
     let mixins = options.mixins
+    delete options.mixins
     for (let i = 0, len = mixins.length; i < len; i++) {
-      mergeOptions(options, mixins[i])
+      mergeOptions(options, mixins[i], clockwise)
     }
   }
   return options
 }
 
 export function mergeOptions (distOptions, srcOptions, clockwise) {
-  srcOptions = mixin(srcOptions)
+  srcOptions = mixin(srcOptions, clockwise)
   let keys = Object.keys(srcOptions)
   for (let i = 0, len = keys.length; i < len; i++) {
     let key = keys[i]
@@ -56,13 +57,6 @@ export function bindOptions (axe, options) {
       axe[key] = options[key]
     }
   })
-}
-
-export function initMixin (Axe) {
-  Axe.options = {}
-  Axe.mixin = function (options) {
-    mergeOptions(this.options, options, true)
-  }
 }
 
 function isHook (key) {

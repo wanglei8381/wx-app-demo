@@ -8,5 +8,8 @@ WPage({
     return {
       pages: state.pages[this.route]
     }
+  },
+  onReady () {
+
   }
 })

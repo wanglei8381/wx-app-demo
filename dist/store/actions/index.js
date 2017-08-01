@@ -16,9 +16,10 @@ export function fetchPages (pages) {
   }
 }
 
-export function updatePagesTplsData (data) {
+export function updatePagesTplsData (path, data) {
   return {
     type: UPDATE_PAGES_TPLS_DATA,
+    path,
     data
   }
 }
