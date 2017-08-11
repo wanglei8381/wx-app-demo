@@ -7,4 +7,5 @@
   <template is="ma" data="{{...ma}}"/>
   <template is="mb" data="{{...mb}}"/>
   <template is="mc" data="{{...mc}}"/>
+  <view bindtap="openLog">OPEN LOG</view>
 </view>

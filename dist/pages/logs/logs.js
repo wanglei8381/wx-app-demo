@@ -14,7 +14,14 @@ WPage({
   },
 
   onLoad () {
-    console.log('---->>>>onReady1')
+    console.log('---->>>>onLoad')
+  },
+
+  onReady () {
+    console.log('---->>>>onReady')
+    this.$bus.on('switchTab:logs', (msg) => {
+      console.log('switchTab:logs=', msg)
+    })
   },
 
   onInit () {

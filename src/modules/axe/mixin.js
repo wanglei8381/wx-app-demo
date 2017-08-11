@@ -1,4 +1,5 @@
 import { mergeOptions } from './options'
+import { nextTick } from './utils'
 export function initMixin (Axe) {
   Axe.options = {}
   Axe.mixin = function (options) {
@@ -32,6 +33,13 @@ export function buildinMixin (Axe) {
     // page中
     onReady () {
       this._ready = true
+      nextTick(() => {
+        var key = this.route
+        if (typeof this.name === 'string') {
+          key = this.name
+        }
+        this.$bus.emit('page:' + key + ':ready', this)
+      })
     },
 
     // app和page中

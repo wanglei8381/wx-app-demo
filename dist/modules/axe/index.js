@@ -6,6 +6,7 @@ import {
 } from './mixin'
 
 let app = null
+const bus = new Event()
 
 // 初始化混合
 initMixin(Axe)
@@ -14,15 +15,19 @@ buildinMixin(Axe)
 
 export function WApp (options) {
   if (app) return app
+  options.$bus = bus
   app = new Axe(options, App)
-  app.$bus = new Event(app)
+  app.$bus = bus
+  // wx绑定bus
+  wx.$bus = bus
   return app
 }
 
 export function WPage (options) {
+  options.$bus = bus
   let axe = new Axe(options, Page)
   axe.$root = app
-  axe.$bus = app.$bus
+  axe.$bus = bus
   return axe
 }
 
