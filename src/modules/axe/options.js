@@ -42,11 +42,12 @@ export function mergeOptions (distOptions, srcOptions, clockwise) {
 }
 
 export function bindOptions (axe, options) {
+  const wxOptions = {}
   Object.keys(options).forEach((key) => {
     if (isFunction(options[key])) {
-      axe[key] = options[key].bind(axe)
+      wxOptions[key] = axe[key] = options[key].bind(axe)
     } else if (isHook(key)) {
-      axe[key] = function (...args) {
+      wxOptions[key] = axe[key] = function (...args) {
         // 绑定上下文
         axe.$cxt = this
         options[key].forEach((fn) => {
@@ -54,9 +55,10 @@ export function bindOptions (axe, options) {
         })
       }
     } else {
-      axe[key] = options[key]
+      wxOptions[key] = axe[key] = options[key]
     }
   })
+  return wxOptions
 }
 
 function isHook (key) {

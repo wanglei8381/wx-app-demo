@@ -23,9 +23,9 @@ class Axe extends Event {
     mergeOptions(finalOptions, options)
     mergeOptions(finalOptions, Axe.options)
 
-    bindOptions(this, finalOptions)
+    const wxOptions = bindOptions(this, finalOptions)
     callHook('Init', this)
-    run(this)
+    run(wxOptions)
   }
 
   // 代理setData
