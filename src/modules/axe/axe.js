@@ -32,7 +32,7 @@ class Axe extends Event {
   setData (data) {
     if (this.$cxt && this.$cxt.setData) {
       this.$cxt.setData(data)
-    } else {
+    } else if (process.env.NODE_ENV !== 'production') {
       console.log('[axe][setData]setData需要在onLoad后才可以使用')
     }
   }

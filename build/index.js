@@ -1,9 +1,16 @@
 var gulp = require('gulp');
+var replace = require('gulp-replace');
 var px2rpx = require('./gulp-px2rpx');
 var alias = require('./gulp-alias');
 var watch = require('./watch');
 var del = require('del');
 var config = require('./config');
+var minimist = require('minimist');
+
+var options = minimist(process.argv.slice(2), {
+  string: 'env',
+  default: { env: process.env.NODE_ENV || 'production' }
+});
 
 var jsPath = './src/**/*.js'
 var cssPath = './src/**/*.wxss'
@@ -14,6 +21,7 @@ gulp.task('js', function () {
   return gulp.src(jsPath)
     .pipe(watch(jsPath))
     .pipe(alias(config.alias))
+    .pipe(replace('process.env.NODE_ENV', '"' + options.env + '"'))
     .pipe(gulp.dest('./dist'))
 });
 
@@ -36,11 +44,16 @@ gulp.task('json', function () {
     .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('default', ['js', 'wxss', 'wxml', 'json']);
+gulp.task('move', function () {
+  return gulp.src(['./src/images/*.*'
+  ]).pipe(gulp.dest('./dist/images'))
+});
+
+gulp.task('default', ['js', 'wxss', 'wxml', 'json', 'move'])
 
 gulp.task('dev', ['default'])
 
 gulp.task('build', function () {
-  del.sync('./dist');
+  del.sync('./dist')
   gulp.run(['default'])
 })
