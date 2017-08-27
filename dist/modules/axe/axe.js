@@ -38,7 +38,7 @@ class Axe extends Event {
     if (this.$cxt && this.$cxt.setData) {
       this.$cxt.setData(data)
       this.emit('axe:updated', data)
-    } else if ("development" !== 'production') {
+    } else if ("production" !== 'production') {
       console.log('[axe][setData]setData需要在onLoad后才可以使用')
     }
   }
