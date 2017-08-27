@@ -1,4 +1,5 @@
 import { WPage } from '../../modules/axe/index'
+var uid = 0
 WPage({
   data: {
     text: 'This is page data.'
@@ -14,7 +15,10 @@ WPage({
   },
 
   onLoad () {
-    console.log('---->>>>onLoad')
+    console.log('this._ready==', this._ready)
+    this.on('logs', (val) => {
+      console.log('logs===', val)
+    })
   },
 
   onReady () {
@@ -22,8 +26,6 @@ WPage({
     this.$bus.on('switchTab:logs', (msg) => {
       console.log('switchTab:logs=', msg)
     })
-  },
-
-  onInit () {
+    this.emit('logs', ++uid)
   }
 })

@@ -5,4 +5,8 @@
     <view class="uf-f1"><input type="number" bindinput="onAdd2$" placeholder="数字"/></view>
     <view>{{addRes}}</view>
   </view>
+  <view class="uf uf-col">
+    <input bindinput="onInput1" placeholder="请输入" />
+    <input bindinput="onInput2" placeholder="请输入" />
+  </view>
 </view>

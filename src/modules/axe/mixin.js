@@ -45,6 +45,14 @@ export function buildinMixin (Axe) {
     // app和page中
     onHide () {
       this._active = false
+    },
+
+    onUnload () {
+      // 重新初始化页面信息
+      this._ready = false
+      this._active = false
+      // 事件初始化
+      this._events = {}
     }
   })
 }

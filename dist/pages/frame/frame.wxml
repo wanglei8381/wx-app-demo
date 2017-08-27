@@ -8,4 +8,5 @@
   <template is="mb" data="{{...mb}}"/>
   <template is="mc" data="{{...mc}}"/>
   <view bindtap="openLog">OPEN LOG</view>
+  <navigator url="/pages/logs/logs">navigator OPEN LOG</navigator>
 </view>

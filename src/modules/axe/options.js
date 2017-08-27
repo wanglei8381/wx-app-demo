@@ -61,6 +61,19 @@ export function bindOptions (axe, options) {
   return wxOptions
 }
 
+export function pickOptions (axe, keys, options) {
+  let nkeys = Object.keys(axe)
+  if (nkeys.length <= keys.length) return options
+  let key = null
+  for (let i = 0, len = nkeys.length; i < len; i++) {
+    key = nkeys[i]
+    if (keys.indexOf(key) === -1) {
+      options[key] = axe[key]
+    }
+  }
+  return options
+}
+
 function isHook (key) {
   return lifecycleHooks.indexOf(key) > -1
 }
