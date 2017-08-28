@@ -34,6 +34,7 @@ WPage({
     a$.combineLatest(b$, (a, b) => {
         return a.length > 0 && a.length < 10 && b != null
       })
+      .distinctUntilChanged()
       .subscribe(val => {
         console.log('$watchAsObservable', val)
       })

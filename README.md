@@ -103,7 +103,7 @@ WPage({
 
 > rxjs
 
-* 引入rxjs的过程，下载rxjs源码，安装依赖，运行npm run global
+* 引入rxjs的过程，下载rxjs源码，安装依赖，运行npm run build_global
 
 > 模块化
 
