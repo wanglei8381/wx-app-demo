@@ -3,7 +3,7 @@ import { nextTick } from './utils'
 export function initMixin (Axe) {
   Axe.options = {}
   Axe.mixin = function (options) {
-    mergeOptions(this.options, options, true)
+    mergeOptions(this.options, options)
     return this
   }
 }

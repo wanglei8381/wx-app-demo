@@ -21,8 +21,8 @@ class Axe extends Event {
     this._active = false
 
     let finalOptions = {}
-    mergeOptions(finalOptions, options)
     mergeOptions(finalOptions, Axe.options)
+    mergeOptions(finalOptions, options)
 
     const wxOptions = bindOptions(this, finalOptions)
 

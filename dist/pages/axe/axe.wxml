@@ -1,0 +1,1 @@
+<view class="uf uf-center">Hello {{name}}</view>

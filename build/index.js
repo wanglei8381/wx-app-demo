@@ -29,6 +29,9 @@ gulp.task('wxss', function () {
   return gulp.src(cssPath)
     .pipe(watch(cssPath))
     .pipe(px2rpx())
+    .pipe(replace(/\/\*\s*wuage:remove\s*\*\/[\d\D]*?}/g, function (match) {
+      return options.env === 'development' ? '' : match
+    }))
     .pipe(gulp.dest('./dist'))
 });
 

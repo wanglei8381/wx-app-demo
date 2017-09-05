@@ -11,7 +11,7 @@ import {
 } from "../modules/redux/index.js"
 
 let store
-if ("development" !== 'production') {
+if ("production" !== 'production') {
   store = createStore(reducers, Immutable(initialState), applyMiddleware(reduxThunk, log))
 } else {
   store = createStore(reducers, Immutable(initialState), applyMiddleware(reduxThunk))

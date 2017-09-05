@@ -1,10 +1,5 @@
 function nextTick (cb) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      cb()
-      resolve()
-    }, 0)
-  })
+  return Promise.resolve().then(cb)
 }
 
 function noop () {
