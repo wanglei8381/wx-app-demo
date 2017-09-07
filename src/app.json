@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/most/most",
     "pages/rxjs/rxjs",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/es6api/es6api"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,8 +20,8 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/user/user",
-        "text": "我的"
+        "pagePath": "pages/es6api/es6api",
+        "text": "es6"
       }
     ]
   },

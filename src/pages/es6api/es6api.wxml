@@ -1,0 +1,6 @@
+<view class="es6api">
+  <view class="item" bindtap="Promise">Promise</view>
+  <view class="item" bindtap="Symbol">Symbol</view>
+  <view class="item" bindtap="Set">Set</view>
+  <view class="item" bindtap="Map">Map</view>
+</view>
