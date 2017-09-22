@@ -14,8 +14,7 @@ export default {
       'onHide',
       'onUnload',
       'onPullDownRefresh',
-      'onReachBottom',
-      'onShareAppMessage'
+      'onReachBottom'
     ]
   }
 }
