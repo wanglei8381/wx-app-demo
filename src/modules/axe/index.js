@@ -7,6 +7,7 @@ import {
 
 let app = null
 const bus = new Event()
+Axe.$bus = bus
 
 // 初始化混合
 initMixin(Axe)
