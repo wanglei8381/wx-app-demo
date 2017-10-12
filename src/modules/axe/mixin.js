@@ -38,7 +38,7 @@ export function buildinMixin (Axe) {
         if (typeof this.name === 'string') {
           key = this.name
         }
-        this.$bus.emit('page:' + key + ':ready', this)
+        this.$bus.emit('axe:page:' + key + ':ready', this)
       })
     },
 
