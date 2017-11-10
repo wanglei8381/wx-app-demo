@@ -16,14 +16,8 @@ export function provider (store) {
       })
     },
 
-    onShow () {
-      if (this._ready) {
-        listener(this, this.$store.getState())
-      }
-    },
-
     onReady () {
-      listener(this, this.$store.getState())
+      listener(this, this.$store.getState(), true)
     },
 
     onUnload () {
@@ -34,13 +28,15 @@ export function provider (store) {
   })
 }
 
-function listener (axe, state) {
+function listener (axe, state, init) {
   if (!axe._active) return
   if (axe.mapState) {
     var nextState = axe.mapState(state)
-    if (isPlainObject(nextState) && !shallowEqual(axe.state, nextState)) {
-      axe.state = nextState
-      axe.setData(axe.state)
+    if (isPlainObject(nextState)) {
+      if (init || !shallowEqual(axe.state, nextState)) {
+        axe.state = nextState
+        axe.setData(axe.state)
+      }
     }
   }
   if (axe.onStateChange) {

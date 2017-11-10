@@ -1,0 +1,6 @@
+<view>绘图</view>
+
+<canvas canvas-id="myCanvas" style="border: 1px solid;"/>
+
+<view bindtap="tap" data-name="heloo wordd">剪切板A版</view>
+<view bindtap="tap2">或区间且内容</view>
