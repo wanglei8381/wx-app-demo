@@ -6,7 +6,8 @@
     "pages/rxjs/rxjs",
     "pages/user/user",
     "pages/es6api/es6api",
-    "pages/canvas/canvas"
+    "pages/canvas/canvas",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",
