@@ -1,0 +1,16 @@
+<view>
+  <button bindtap="openToast">打开toast</button>
+  <w-toast
+    bind:close="handleToastClose"
+    mask
+    visible="{{toastVisible}}">
+    hello
+  </w-toast>
+
+  <button bindtap="openPopup">打开popup</button>
+  <w-popup
+    visible="{{popupVisible}}"
+    bind:close="handlePopupClose">
+    你有新的订单了
+  </w-popup>
+</view>

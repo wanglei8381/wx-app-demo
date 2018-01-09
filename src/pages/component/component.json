@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-toast": "../../components/toast/toast",
+    "w-popup": "../../components/popup/popup"
+  }
+}

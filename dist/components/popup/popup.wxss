@@ -1,0 +1,30 @@
+.m-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.anim-popup-in {
+  animation: animPopupIn 0.5s ease-out;
+}
+
+.anim-popup-out {
+  animation: animPopupOut 0.5s ease-out forwards;
+}
+
+@keyframes animPopupIn {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes animPopupOut {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}

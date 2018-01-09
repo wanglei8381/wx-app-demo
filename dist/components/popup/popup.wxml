@@ -1,0 +1,6 @@
+<view
+  wx:if="{{visible}}"
+  bind:animationend="handleAnimationEnd"
+  class="m-popup anim-popup-{{animMode}}">
+    <slot></slot>
+</view>

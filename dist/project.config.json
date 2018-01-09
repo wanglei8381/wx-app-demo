@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -34,6 +34,11 @@
 					"name": "webview",
 					"pathName": "pages/webview/webview",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "自定义组件",
+					"pathName": "pages/component/component"
 				}
 			]
 		}
