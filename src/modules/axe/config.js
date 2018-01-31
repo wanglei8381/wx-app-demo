@@ -14,7 +14,8 @@ export default {
       'onHide',
       'onUnload',
       'onPullDownRefresh',
-      'onReachBottom'
+      'onReachBottom',
+      'onPageScroll'
     ]
   }
 }

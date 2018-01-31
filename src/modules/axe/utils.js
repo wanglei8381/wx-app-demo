@@ -9,7 +9,10 @@ export function callHook (hookName, axe) {
 
 // 深度继承
 export function extend (dist, src) {
-  if (!isPlainObject(src)) return
+  if (!isPlainObject(dist)) {
+    dist = {}
+  }
+  if (!isPlainObject(src)) return dist
 
   let keys = Object.keys(src)
   let key
@@ -25,6 +28,7 @@ export function extend (dist, src) {
       dist[key] = src[key]
     }
   }
+  return dist
 }
 
 export function nextTick (cb) {
