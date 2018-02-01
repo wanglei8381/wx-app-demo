@@ -46,16 +46,6 @@ export function mergeOptions (distOptions, srcOptions) {
 
   function mergeField (key) {
     if (key === 'data') {
-      // distOptions.data = distOptions.data || {}
-      // var data = srcOptions[key]
-      // if (isFunction(data)) {
-      //   data = data()
-      // }
-      // if (isFunction(distOptions.data)) {
-      //   distOptions.data = distOptions.data() || {}
-      // }
-      // extend(distOptions.data, data)
-
       distOptions.data = mergedDataFn(srcOptions.data, distOptions.data)
     } else if (isHook(key)) {
       distOptions[key] = concatFunction(distOptions[key], srcOptions[key])
