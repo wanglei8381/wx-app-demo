@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/edit/edit",
     "pages/frame/frame",
     "pages/logs/logs",
     "pages/most/most",

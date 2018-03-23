@@ -8,6 +8,8 @@ import {
 let app = null
 const bus = new Event()
 Axe.$bus = bus
+// wx绑定bus
+wx.$bus = bus
 
 // 初始化混合
 initMixin(Axe)
@@ -19,8 +21,6 @@ export function WApp (options = {}) {
   options.$bus = bus
   app = new Axe(options, App)
   app.$bus = bus
-  // wx绑定bus
-  wx.$bus = bus
   return app
 }
 

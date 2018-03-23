@@ -1,0 +1,17 @@
+<view class="edit">
+  <view class="edit-actions">
+    <view class="uf-f1" bindtap="preview">预览</view>
+    <view class="uf-f1" bindtap="insertImage">插入图片</view>
+    <view class="uf-f1" bindtap="insertVedio">插入视频</view>
+  </view>
+  <textarea
+    bindinput="change"
+    bindblur="blur"
+    cursor="{{cursor}}"
+    maxlength="-1"
+    bindlinechange="lineChange"
+    auto-focus="true"
+    value="{{value}}"
+    class="edit-content">
+  </textarea>
+</view>

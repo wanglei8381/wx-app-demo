@@ -46,15 +46,7 @@ export function mergeOptions (distOptions, srcOptions) {
 
   function mergeField (key) {
     if (key === 'data') {
-      distOptions.data = distOptions.data || {}
-      var data = srcOptions[key]
-      if (isFunction(data)) {
-        data = data()
-      }
-      if (isFunction(distOptions.data)) {
-        distOptions.data = distOptions.data() || {}
-      }
-      extend(distOptions.data, data)
+      distOptions.data = mergedDataFn(srcOptions.data, distOptions.data)
     } else if (isHook(key)) {
       distOptions[key] = concatFunction(distOptions[key], srcOptions[key])
     } else {
@@ -63,10 +55,24 @@ export function mergeOptions (distOptions, srcOptions) {
   }
 }
 
+function mergedDataFn (srcData, distData) {
+  return function () {
+    if (isFunction(srcData)) {
+      srcData = srcData.call(this, this)
+    }
+    if (isFunction(distData)) {
+      distData = distData.call(this, this)
+    }
+    return extend(distData, srcData)
+  }
+}
+
 export function bindOptions (axe, options) {
   const wxOptions = {}
   Object.keys(options).forEach((key) => {
-    if (isFunction(options[key])) {
+    if (key === 'data' && isFunction(options.data)) {
+      wxOptions[key] = axe[key] = options.data.call(axe)
+    } else if (isFunction(options[key])) {
       wxOptions[key] = axe[key] = options[key].bind(axe)
     } else if (isHook(key)) {
       wxOptions[key] = axe[key] = function (...args) {
@@ -101,13 +107,13 @@ function isHook (key) {
 }
 
 function concatFunction (a, b) {
-  if (!Array.isArray(a)) {
-    a = isFunction(a) ? [a] : []
-  }
+  return funcToArray(a).concat(funcToArray(b))
+}
 
-  if (!Array.isArray(b)) {
-    b = isFunction(b) ? [b] : []
-  }
-
-  return a.concat(b)
+function funcToArray (f) {
+  return Array.isArray(f)
+    ? f
+    : isFunction(f)
+      ? [f]
+      : []
 }

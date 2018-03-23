@@ -1,6 +1,5 @@
 import {
-  noop,
-  clone
+  noop
 } from './utils'
 
 import {
@@ -8,48 +7,20 @@ import {
   clearSid
 } from './sid'
 
-let count = 0
-
-function request (options) {
-  let _options = clone(options)
-
+export function request (options) {
   let {
     fail = noop,
     success = noop,
-    header = {}
+    data = {}
   } = options
 
   return new Promise((resolve, reject) => {
     getSid().then((sid) => {
-      header.sid = sid
+      data.sid = sid
 
       options.success = (res) => {
-        if (res.statusCode === 200 && res.data.success) {
-          count = 0
-          success(res.data)
-          resolve(res)
-        } else if (res.data.code) {
-          switch (res.data.code) {
-            case 5001:
-            // sid 空
-              break
-            case 5002:
-              // sid 无效
-              count++
-              // 最多请求5次
-              if (count <= 5) {
-                clearSid()
-                request(_options)
-              } else {
-                fail(res)
-                reject(res)
-              }
-              break
-          }
-        } else {
-          fail(res)
-          reject(res)
-        }
+        success(res.data)
+        resolve(res.data)
       }
 
       options.fail = (err) => {
@@ -57,7 +28,7 @@ function request (options) {
         reject(err)
       }
 
-      options.header = header
+      options.data = data
       wx.request(options)
     }).catch((err) => {
       fail(err)
@@ -66,4 +37,4 @@ function request (options) {
   })
 }
 
-module.exports = request
+export default request
