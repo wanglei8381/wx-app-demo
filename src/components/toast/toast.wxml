@@ -1,7 +1,7 @@
 <view
   wx:if="{{visible}}"
   bind:animationend="handleAnimationEnd"
-  class="m-toast-container anim-toast-{{animMode}} {{mask && 'm-toast-mask'}}">
+  class="m-toast-container anim-toast-{{animMode}} {{mask ? 'm-toast-mask' : ''}}">
   <view class="m-toast">
     <slot></slot>
   </view>
