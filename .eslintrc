@@ -9,6 +9,11 @@
   "globals": {
     "wx": true,
     "App": true,
-    "Page": true
+    "Page": true,
+    "Component": true,
+    "Behavior": true
+  },
+  "rules": {
+    "space-before-function-paren": "off"
   }
 }
